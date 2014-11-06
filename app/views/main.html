@@ -1,0 +1,34 @@
+<div class="jumbotron">
+  
+  <nvd3-pie-chart
+        data="ideas"
+        x="xFunction()"
+        y="yFunction()"
+        showLabels="true"
+        showValues="true"
+        labelType="percent"
+        width="500"
+        height="500"
+        showLegend="true"
+        tooltips="true"
+        interactive="true"
+        objectEquality="true">
+        <svg></svg>
+    </nvd3-pie-chart>
+</div>
+
+<div class="container">
+  <div class="row">
+    <h1>Top Ideas:</h1>
+    <div class="col-xs-6 col-md-4" ng-repeat="idea in ideas | orderBy:'-votes'">
+      <idea data-idea="idea"></idea>
+    </div>
+  </div>
+  <div class="row">
+    <h1>Top Ideas:</h1>
+    <div class="col-xs-6 col-md-4" ng-repeat="idea in ideas | orderBy:'title'">
+      <h4>{{ idea.title }}</h4>
+      <input type="range" ng-model="idea.votes" min="0" max="50" value="idea.votes"></idea>
+    </div>
+  </div>
+</div>
